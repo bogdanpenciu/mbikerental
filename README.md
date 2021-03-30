@@ -1,4 +1,8 @@
 # mbikerental
-this is an online rental
-* item 1
-* item 2
+## Description
+## Features
+* user administration (sing-in, sing-up)
+* rental period
+* motorbike list
+* motorbike detail
+
