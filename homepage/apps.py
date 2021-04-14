@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class GarageConfig(AppConfig):
-    name = 'Garage'
+class homepageConfig(AppConfig):
+    name = 'homepage'

@@ -1,0 +1,24 @@
+<h1>Bike details</h1>
+<h2>{{detail.make}} {{detail.type}}</h2>
+<img src='{{ detail.picture }}' alt="moto" width=100" height="100">
+<ul>
+    <li>Power: {{detail.power}} kw</li>
+    <li>Fuel usage: {{detail.fuel_usage}}L/100Km</li>
+    <li>Price from: €{{detail.price}}/day </li>
+    <li>Deposit: €{{detail.deposit}} </li>
+</ul>
+<h2>Additional Information</h2>
+    <a>{{detail.additional_info}}</a>
+
+<h2>The rental price includes:</h2>
+<ul>
+    <li>helmet </li>
+    <li>top case </li>
+    <li>rain suit (one piece) for the driver and, if available, for passenger</li>
+    <li>Abus lock chain for each motorcycle</li>
+    <li>unlimited mileage</li>
+    <li>24h phone assistance</li>
+    <li>phone holder & USB plug</li>
+</ul>
+<a href={% url 'homepage:reservation'%}><button>Rent a bike now</button></a>
+

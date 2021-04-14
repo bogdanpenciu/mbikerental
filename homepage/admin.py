@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Moto, Reservation, PriceIncrease
+
+admin.site.register(Moto)
+admin.site.register(Reservation)
+admin.site.register(PriceIncrease)

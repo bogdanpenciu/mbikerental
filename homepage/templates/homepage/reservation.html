@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+    <div class="form-group">
+    <form action="" method="post" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Add Reservation</button>
+
+    </form>
+    </div>
+
+
+{% endblock %}
