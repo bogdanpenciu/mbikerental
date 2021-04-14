@@ -1,9 +1,9 @@
 from django.urls import path, include
 
-from homepage.views import home_page
+from Garage.views import homepage
 
-app_name = "accounts"
+app_name='Garage'
 
 urlpatterns = [
-    path('', home_page, name="shop"),
-]
+    path('', homepage, name="home")
+    ]
