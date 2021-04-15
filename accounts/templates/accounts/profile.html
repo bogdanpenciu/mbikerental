@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
-
+ {% if user.is_authenticated %}
     <div class="container">
         <div class="row justify-content-center">
             <div class="card shadow " style="width: 20rem;">
@@ -21,4 +21,5 @@
             </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}

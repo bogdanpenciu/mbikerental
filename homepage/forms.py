@@ -5,9 +5,6 @@ from homepage.models import Reservation
 
 class ReservationForm(forms.ModelForm):
 
-    # date_start = forms.DateField(widget = AdminDateWidget())
-    # date_return = forms.DateField(widget = AdminDateWidget())
-
 
     class Meta:
         model = Reservation
