@@ -1,7 +1,8 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -11,7 +12,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'homepage:home' %}"><img src="{% static 'homepage/images/logo.JPG' %}"
+        <a class="navbar-brand" href="{% url 'homepage:home' %}"><img src="{% static 'homepage/images/logo.jpg' %}"
                                                                       alt="" width="247" height="45"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
