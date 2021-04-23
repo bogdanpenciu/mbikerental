@@ -3,6 +3,10 @@ from django.db import models
 from accounts.models import UserProfile, User
 from django.utils import timezone
 
+clases = (('AM', 'AM'),
+           ('A1', 'A1'),
+           ('A2', 'A2'),
+           ('A', 'A'))
 
 class Moto(models.Model):
     make = models.CharField(max_length=20)
@@ -10,13 +14,24 @@ class Moto(models.Model):
     power = models.IntegerField()
     price = models.IntegerField()
     picture = models.CharField(max_length=200, null=True)
-    quantity = models.FloatField(default=0)
+    license = models.CharField(choices=clases, max_length=20, null=True, blank=True, default='A')
     fuel_usage = models.FloatField(default=0)
     deposit = models.IntegerField(default=500)
-    additional_info = models.TextField(max_length=200, default='')
+    additional_info = models.TextField(max_length=2000, default='')
 
     def __str__(self):
         return f'{self.make} {self.type}'
+
+    def get_rating(self):
+        total = sum(int(review['stars']) for review in self.reviews.values())
+
+        if self.reviews.count() > 0:
+            return total/ self.reviews.count()
+        else:
+            return 3
+
+
+
 
 
 class PriceIncrease(models.Model):
@@ -61,6 +76,17 @@ class Reservation(models.Model):
 
     def __str__(self):
         return f'Reservation no.{self.id}'
+
+class MotoReview(models.Model):
+    moto = models.ForeignKey(Moto, related_name="reviews", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField(blank=True, null=True)
+    stars= models.IntegerField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '%s - %s' % (self.moto.make, self.id)
+
 
 
 

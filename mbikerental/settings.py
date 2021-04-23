@@ -26,7 +26,7 @@ SECRET_KEY = '9xrlhi9)vz@y6+90t3*1hynh1dvt&)lj)npctup14cszj$r)%-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -87,10 +87,12 @@ WSGI_APPLICATION = 'mbikerental.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+DATABASES = {'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',}
 
     }
-DATABASES['default']=dj_database_url.config(conn_max_age=600, ssl_require=True)
+# DATABASES['default']=dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation

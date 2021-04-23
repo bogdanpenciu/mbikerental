@@ -1,13 +1,13 @@
 from django.urls import path
 
 from homepage.views import Home, Detail, CreateReservation, ReservationCompView, EditMoto, AddMoto, PriceList, AddNewPrice, EditPrice, \
-    ReservationView, DeletePrice
-
+    ReservationView, DeletePrice, AddReview
 app_name='homepage'
 
 urlpatterns = [
     path('', Home.as_view(), name="home"),
     path('<int:pk>', Detail.as_view(), name='detail'),
+    path('<int:pk>/addreview', AddReview.as_view(), name='addreview'),
     path('rezervation/', CreateReservation.as_view(), name='reservation'),
     path('rezcomp/', ReservationCompView.as_view(), name='rezcomp'),
     path('reslist/', ReservationView.as_view(), name='reslist'),

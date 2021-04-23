@@ -55,12 +55,12 @@
                                 {% endif %}
                             {% endfor %}
                         {% else %}
-                            <a><img src="{{ user.userprofile.picture.url }}" class="rounded-circle" width=50"
+                            <a><img src="{{ user.userprofile.picture.url }}" class="rounded-circle" width="50"
                                     height="50"></a>
                         {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{% url 'accounts:profile' %}">UserAccount</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'accounts:profile' %}">Profile</a>
                     </li>
                 </ul>
 
@@ -68,6 +68,9 @@
                 <ul class="navbar nav">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'accounts:signup' %}">SignUp</a>
                     </li>
                 </ul>
 
@@ -78,6 +81,7 @@
 </nav>
 {% block body %}
 {% endblock %}
+<script src="https://kit.fontawesome.com/0e78a24019.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
         integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"

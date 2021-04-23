@@ -1,5 +1,5 @@
 <form action="" method="post">
     {% csrf_token %}
-    <p>Are you sure you want to delete price for {{ price.moto.make }}{{ price.moto.type }}?</p>
+    <p>Are you sure you want to delete price for {{ price.moto.make }} - {{ price.moto.type }}?</p>
     <input type="submit" value="Delete price ">
 </form>

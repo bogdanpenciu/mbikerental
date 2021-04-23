@@ -1,27 +1,48 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
+
     {% load crispy_forms_tags %}
 
     <div class="row justify-content-center">
-        <div class="card mt-5" style="width: 30rem;">
-            <form action="" method="post">
+        <div class="col-12 col-sm-6 col-md-3">
+            <form class="form-container" action="" method="post">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <input type="submit" value="LOGIN">
-
+                <br/>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary ">Login</button>
+                </div>
+                <br/>
+                <div class="text-center">
+                    <a href="{% url 'social:begin' 'facebook' %}"><img
+                            src="https://www.freeiconspng.com/uploads/login-with-facebook-button-png-32.png"
+                            width="200"
+                            alt="login with facebook button png"/></a>
+                </div>
+                <div class="text-center">
+                <p>Forgot Password? <a href={% url 'password_reset' %}>Reset</a></p>
+                    </div>
             </form>
-
-            <a href="{% url 'social:begin' 'facebook' %}"><img
-                    src="https://www.freeiconspng.com/uploads/login-with-facebook-button-png-32.png" width="180"
-                    alt="login with facebook button png"/></a>
-
-            <a href={% url 'password_reset' %}>
-                <button>Password reset</button>
-            </a>
-            <a href={% url 'accounts:signup' %}>
-                <button>SIGN UP</button>
-            </a>
         </div>
     </div>
+
 {% endblock %}
+{#    <section class="container-fluid">#}
+{#        <section class="row justify-content-center">#}
+{#            <section class="col-12 col-sm-6 col-md-3">#}
+{#                <form class="form-container">#}
+{##}
+{#                    <br/>#}
+{#                    <div class="d-grid gap-2">#}
+{#                    <button type="submit" class="btn btn-primary ">Submit</button>#}
+{#                      </div>#}
+{#                </form>#}
+{#            </section>#}
+{##}
+{#        </section>#}
+{##}
+{##}
+{#    </section>#}
+
+

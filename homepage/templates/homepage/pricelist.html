@@ -3,7 +3,7 @@
 
     <h1> Price List</h1>
     {% if perms.homepage.addnewprice %}
-        <a href="{% url 'homepage:addnewprice' %}" class="btn btn-primary">Add new price</a>
+        <a href="{% url 'homepage:addnewprice' %}" class="far fa-plus-square"></a>
     {% endif %}
     <table class="table table-striped table-hover">
         <tr>
@@ -23,8 +23,8 @@
             <td>{{ price.moto.price }}€</td>
             <td>{{ price.moto.deposit }}€</td>
             {% if perms.homepage.deleteprice %}
-                <td><a href='{% url 'homepage:editprice' price.id %}' class="btn btn-primary">Update</a></td>
-                <td><a href='{% url 'homepage:deleteprice' price.id %}' class="btn btn-primary">X</a></td>
+                <td><a href='{% url 'homepage:editprice' price.id %}' class="fas fa-edit"></a></td>
+                <td><a href='{% url 'homepage:deleteprice' price.id %}' class="fas fa-trash-alt"></a></td>
             {% endif %}
         {% endfor %}
         </tr>

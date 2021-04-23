@@ -1,6 +1,12 @@
-<form action="" method="post" >
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<form class="form-container" action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Add bike">
 
 </form>
+
+{% endblock %}

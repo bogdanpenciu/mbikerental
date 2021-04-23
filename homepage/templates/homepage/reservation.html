@@ -1,18 +1,29 @@
 {% extends 'base.html' %}
 {% block body %}
-
-
-    <div class="form-group">
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            {% if user.is_authenticated %}
-                <button class="btn btn-secondary">Add Reservation</button>
-            {% else %}
-                <a href='{% url 'accounts:login' %}' class="btn btn-primary">Please Login</a>
-            {% endif %}
-        </form>
+    <br/>
+    <div class="text-center">
+    <h3>Complete this from for a reservation</h3>
     </div>
+ <br/> <br/> <br/>
 
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {% if user.is_authenticated %}
+                        <dev class="d-grid gap-2">
+                        <button class="btn btn-secondary">Add Reservation</button>
+                        </dev>
+                    {% else %}
+                        <dev class="d-grid gap-2">
+                        <a href='{% url 'accounts:login' %}' class="btn btn-secondary">Please Login</a>
+                        </dev>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
