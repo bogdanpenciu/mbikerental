@@ -13,6 +13,7 @@
 4. Motorbike list
 5. Motorbike details
 6. Pricing
+7. UserProfile show and edit
 
 
 
