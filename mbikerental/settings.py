@@ -84,7 +84,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mbikerental.wsgi.application'
 
 
-# Database
+# # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES ={}
@@ -94,10 +94,10 @@ DATABASES ={}
 #         'NAME': BASE_DIR / 'db.sqlite3',}
 #
 #     }
-DATABASES['default']=dj_database_url.config(conn_max_age=600, ssl_require=True)
+# DATABASES['default']=dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
-# Password validation
+# # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
