@@ -26,7 +26,7 @@ class UserProfile(models.Model):
         diff = relativedelta.relativedelta(today, date2)
         years = diff.years
         months = diff.months
-        return f'{years} years {months} months'
+        return f'{years} Years {months} Months'
 
 
     def __str__(self):
