@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+    <div class="container1">
+        <h2>Contact</h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-5">
+                <img src="{% static 'homepage/images/contact_pic.jpg' %}" class="img-thumbnail" alt="..." width="500">
+                <hr>
+                <p><b>Adress:</b> bd Pipera 1L-2, Voluntari, Ilfov, Romania</p>
+                <p><b>Phone:</b> 0741764000, 0241776765</p>
+                <p><b>E-mail:</b> twowheels4rent@gmail.com</p>
+            </div>
+
+            <div class="col-md-5">
+                <p>Inside message area, please indicate: type of motorcycle, rental duration, luggage, helmet and gloves,
+                    airport transfer, accomodation required, would you like to join a tour etc. Add to contacts our mobile phones and ask
+                    the details of your booking on WhatsApp: +0741764000 </p>
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Send Message">
+
+
+                    </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

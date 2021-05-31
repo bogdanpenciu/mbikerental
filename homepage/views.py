@@ -8,7 +8,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView, DeleteView
 
 from .forms import ReservationForm, MotoReviewForm
-from .models import Moto, Reservation, PriceIncrease, MotoReview
+from .models import Moto, Reservation, PriceIncrease, MotoReview, Contact
 from django.template import loader
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
@@ -120,3 +120,11 @@ class DeletePrice(PermissionRequiredMixin, DeleteView):
     context_object_name = 'price'
     permission_required = 'homepage:editdelete'
 
+class CreateMessage(CreateView):
+    template_name = 'homepage/contact.html'
+    fields = '__all__'
+    model = Contact
+    success_url = reverse_lazy('homepage:messagesend')
+
+class MessageSend(TemplateView):
+ template_name = "homepage/message_send.html"
