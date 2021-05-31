@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
-from homepage.models import Reservation, MotoReview
+from homepage.models import Reservation, MotoReview, Contact
 
 
 class ReservationForm(forms.ModelForm):
@@ -20,3 +20,8 @@ class MotoReviewForm(ModelForm):
     class Meta:
         model = MotoReview
         fields = ('content', 'stars',)
+
+class MsgForm(ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('full_name', 'phone','e_mail', 'message',)

@@ -1,31 +1,63 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
+    {% load crispy_forms_tags %}
 
     <div class="container1">
-        <h2>Contact</h2>
-        <hr>
+        <p class="details">.<i class="fas fa-pen-square"></i> Contact</p>
+        <br/>
         <div class="row">
             <div class="col-md-5">
-                <img src="{% static 'homepage/images/contact_pic.jpg' %}" class="img-thumbnail" alt="..." width="500">
+                <img src="{% static 'homepage/images/contact_pic.jpg' %}" class="img-thumbnail" alt="..." width="550">
                 <hr>
-                <p><b>Adress:</b> bd Pipera 1L-2, Voluntari, Ilfov, Romania</p>
-                <p><b>Phone:</b> 0741764000, 0241776765</p>
-                <p><b>E-mail:</b> twowheels4rent@gmail.com</p>
+                <p><b><i class="fas fa-map-marker-alt"></i> Adress:</b> bd Pipera 1L-2, Voluntari, Ilfov, Romania</p>
+                <p><b><i class="fas fa-phone"></i> Phone:</b> 0741764000, 024000000</p>
+                <p><b><i class="fas fa-envelope-square"></i> E-mail:</b> twowheels4rent@gmail.com</p>
+                <hr>
+                <div class="mapouter ">
+                    <div class="gmap_canvas">
+                        <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=pipera 1l-2&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                        </div>
+                    <style>.mapouter {
+                        position: relative;
+                        text-align: left;
+                        width: 600px;
+                        height: 400px;
+                    }
+
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        width: 600px;
+                        height: 400px;
+                    }
+
+                    .gmap_iframe {
+                        width: 550px !important;
+                        height: 400px !important;
+                    }</style>
+                </div>
             </div>
 
             <div class="col-md-5">
-                <p>Inside message area, please indicate: type of motorcycle, rental duration, luggage, helmet and gloves,
-                    airport transfer, accomodation required, would you like to join a tour etc. Add to contacts our mobile phones and ask
+                <p class="citat">Inside message area, please indicate: type of motorcycle, rental duration, luggage,
+                    helmet and
+                    gloves,
+                    airport transfer, accomodation required, would you like to join a tour etc. Add to contacts our
+                    mobile phones and ask
                     the details of your booking on WhatsApp: +0741764000 </p>
 
+                <div>
                     <form action="" method="post">
                         {% csrf_token %}
-                        {{ form.as_p }}
-                        <input type="submit" value="Send Message">
-
+                        {{ form|crispy }}
+                        <br/>
+                        <input type="submit" value="Send Message" class="btn btn-primary">
 
                     </form>
+                </div>
+
             </div>
         </div>
     </div>

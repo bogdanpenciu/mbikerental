@@ -7,7 +7,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView, DeleteView
 
-from .forms import ReservationForm, MotoReviewForm
+from .forms import ReservationForm, MotoReviewForm, MsgForm
 from .models import Moto, Reservation, PriceIncrease, MotoReview, Contact
 from django.template import loader
 from django.contrib.auth.mixins import PermissionRequiredMixin
@@ -122,8 +122,8 @@ class DeletePrice(PermissionRequiredMixin, DeleteView):
 
 class CreateMessage(CreateView):
     template_name = 'homepage/contact.html'
-    fields = '__all__'
     model = Contact
+    form_class = MsgForm
     success_url = reverse_lazy('homepage:messagesend')
 
 class MessageSend(TemplateView):
