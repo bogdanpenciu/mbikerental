@@ -12,12 +12,13 @@
                 <h2><i class="fas fa-motorcycle"></i> {{ moto.make }} {{ moto.type }}</h2>
                 <p></p>
                 <img src="" class=stars>
-                <p class="price"> <i class="fas fa-money-bill-wave"></i> From: €{{ moto.price }}/day</p>
+                <p class="price"><i class="fas fa-money-bill-wave"></i> From: €{{ moto.price }}/day</p>
                 <p><b><i class="fas fa-gas-pump"></i> Fuel usage: </b>{{ moto.fuel_usage }} L/100Km</p>
                 <p><b><i class="fas fa-bolt"></i> Power: </b>{{ moto.power }} kw</p>
                 <p><b><i class="fas fa-credit-card"></i> Deposit:</b> €{{ moto.deposit }}</p>
                 <p><b><i class="fas fa-address-card"></i> License Class:</b> {{ moto.license }} category</p>
-                <p><a href="{% url 'homepage:reservation' %}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Reservation
+                <p><a href="{% url 'homepage:reservation' %}" class="btn btn-primary"><i class="fas fa-plus"></i> Add
+                    Reservation
 
                 </a>
                 </p>
@@ -33,36 +34,119 @@
         <br/>
         <div class="row">
 
-            <p class="details"><a href="{% url 'homepage:addreview' moto.id %}"><i class="fas fa-comment-medical"></i></a> Reviews... </p>
-            
+            <p class="details"><a href="{% url 'homepage:addreview' moto.id %}"><i
+                    class="fas fa-comment-medical"></i></a> Reviews... </p>
 
+            <div class="container">
+                <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
+                    <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Not Yet Convinced?</h4>
+                    <h1 class="font-cond-b fg-text-d lts-md fs-300 fs-300-xs no-mg" contenteditable="false">Read
+                        Customer
+                        Reviews</h1>
+                </div>
+                <ul class="hash-list cols-3 cols-1-xs pad-30-all align-center text-sm">
+                    {% for review in moto.reviews.all %}
+
+                        <li>
+                            <img src="{{ review.user.userprofile.picture.url }}" class="wpx-100 img-round mgb-20"
+                                 title="" alt="" data-edit="false" data-editor="field"
+                                 data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]">
+                            <p class="fs-110 font-cond-l" contenteditable="false">"{{ review.content }}"</p>
+                            <h5 class="font-cond mgb-5 fg-text-d fs-130"
+                                contenteditable="false">{{ review.user.username }}</h5>
+                            <small class="font-cond case-u lts-sm fs-80 fg-text-l"
+                                   contenteditable="false">Added: {{ review.date_added|date:"Y-m-d" }}</small>
+                        </li>
+                    {% empty %}
+                        <div>
+                            No reviews yet..
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
 
-        {% for review in moto.reviews.all %}
-            <div class="row justify-content-center">
-                <div class="card mb-2 shadow " style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="{{ review.user.userprofile.picture.url }}" alt="..." width="80px">
-                            <p class="name"><b>{{ review.user.username }}</b></p>
-                            <p class="rating"><b><i class="fas fa-star"></i> Rating {{ review.stars }}</b></p>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body combody">
-                                <p class="card-text comtext">{{ review.content }}</p>
-                                <p class="card-text comtext"><small class="text-muted">Added: {{ review.date_added|date:"Y-m-d" }}</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <style>
+            .align-center {
+                text-align: center;
+            }
 
-        {% empty %}
-            <div>
-                No reviews yet..
-            </div>
-        {% endfor %}
+            .hash-list {
+                display: block;
+                padding: 0;
+                margin: 0 auto;
+            }
+
+            @media (min-width: 768px) {
+                .hash-list.cols-3 > li:nth-last-child(-n+3) {
+                    border-bottom: none;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .hash-list.cols-3 > li {
+                    width: 33.3333%;
+                }
+            }
+
+            .hash-list > li {
+                display: block;
+                float: left;
+                border-right: 1px solid rgba(0, 0, 0, 0.2);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            }
+
+            .pad-30, .pad-30-all > * {
+                padding: 30px;
+            }
+
+            img {
+                border: 0;
+            }
+
+            .mgb-20, .mgb-20-all > * {
+                margin-bottom: 20px;
+            }
+
+            .wpx-100, .wpx-100-after:after {
+                width: 100px;
+            }
+
+            .img-round, .img-rel-round {
+                border-radius: 50%;
+            }
+
+            .padb-30, .padb-30-all > * {
+                padding-bottom: 30px;
+            }
+
+            .mgb-40, .mgb-40-all > * {
+                margin-bottom: 40px;
+            }
+
+            .align-center {
+                text-align: center;
+            }
+
+            [class*="line-b"] {
+                position: relative;
+                padding-bottom: 20px;
+                border-color: #E6AF2A;
+            }
+
+            .fg-text-d, .fg-hov-text-d:hover, .fg-active-text-d.active {
+                color: #222;
+            }
+
+            .font-cond-b {
+                font-weight: 700 !important;
+            }
+        </style>
+
 
     </div>
+
+
+
 
 {% endblock %}
