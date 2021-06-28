@@ -128,3 +128,11 @@ class CreateMessage(CreateView):
 
 class MessageSend(TemplateView):
  template_name = "homepage/message_send.html"
+
+class MessageList(ListView):
+     template_name = 'homepage/message_list.html'
+     model = Contact
+     context_object_name = 'message_list'
+
+     def get_queryset(self):
+         return Contact.objects.all()

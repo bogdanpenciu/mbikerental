@@ -90,7 +90,7 @@ class MotoReview(models.Model):
 
 class Contact(models.Model):
     full_name = models.CharField(max_length=30)
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=10)
     e_mail = models.EmailField()
     message = models.TextField(blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)

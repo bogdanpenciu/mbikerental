@@ -1,7 +1,7 @@
 from django.urls import path
 
 from homepage.views import Home, Detail, CreateReservation, ReservationCompView, EditMoto, AddMoto, PriceList, AddNewPrice, EditPrice, \
-    ReservationView, DeletePrice, AddReview, CreateMessage, MessageSend
+    ReservationView, DeletePrice, AddReview, CreateMessage, MessageSend, MessageList
 app_name='homepage'
 
 urlpatterns = [
@@ -19,6 +19,7 @@ urlpatterns = [
     path('deleteprice/<int:pk>',DeletePrice.as_view(), name='deleteprice'),
     path('contact/', CreateMessage.as_view(), name='contact'),
     path('messagesend/', MessageSend.as_view(), name='messagesend'),
+    path('messagelist/', MessageList.as_view(), name="messagelist"),
 
 ]
     
